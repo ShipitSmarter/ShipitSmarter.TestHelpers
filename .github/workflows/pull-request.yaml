@@ -45,4 +45,4 @@ jobs:
 
 
       - name: PushNuget
-        run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.SHIPITSMARTER_TESTS_NUGET_API_KEY }} --skip-duplicate
+        run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.SHIPITSMARTER_TESTHELPERS_NUGET_API_KEY }} --skip-duplicate
