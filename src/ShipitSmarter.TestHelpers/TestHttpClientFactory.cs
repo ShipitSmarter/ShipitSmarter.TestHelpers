@@ -2,7 +2,7 @@
 
 namespace ShipitSmarter.TestHelpers;
 
-public class TestHttpClientFactory
+public class TestHttpClientFactory : IHttpClientFactory
 {
     private readonly TestHttpMessageHandler _httpMessageHandler;
 
