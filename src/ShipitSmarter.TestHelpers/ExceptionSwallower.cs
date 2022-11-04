@@ -8,7 +8,7 @@ public static class ExceptionSwallower
         {
             await func();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             // Swallow
         }
