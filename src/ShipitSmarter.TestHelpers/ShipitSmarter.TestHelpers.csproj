@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Version>0.0.1-alpha.1</Version>
+        <PackageId>ShipitSmarter.TestHelpers</PackageId>
+        <Title>ShipitSmarter.TestHelpers</Title>
+        <Authors>ShipitSmarter</Authors>
+        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/ShipitSmarter/ShipitSmarter.TestHelpers</PackageProjectUrl>
+        <Description>A set of test helpers used when writing unit and integration tests</Description>
+        <PackageTags>ShipitSmarter, TestHelpers</PackageTags>
+
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="AutoFixture" Version="4.17.0" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+        <PackageReference Include="Moq" Version="4.18.2" />
+        
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <None Include="Readme.md" Pack="true" PackagePath="/">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+</Project>

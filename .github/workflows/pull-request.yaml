@@ -1,0 +1,48 @@
+name: pull-request-ci
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    name: pull-request
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.15
+        with:
+          versionSpec: '5.x'
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Needed for gitversion
+
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v0.9.15
+        with:
+          useConfigFile: true
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v3
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore -p:Version=${{ env.GitVersion_NuGetVersion }}
+
+      - name: Test
+        run: dotnet test
+        
+      - name: Pack
+        run: dotnet pack src/ShipitSmarter.TestHelpers/ShipitSmarter.TestHelpers.csproj --no-build --configuration Release -p:PackageVersion=${{ env.GitVersion_NuGetVersion }}
+
+
+      - name: PushNuget
+        run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.SHIPITSMARTER_TESTS_NUGET_API_KEY }} --skip-duplicate
