@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-
-namespace ShipitSmarter.TestHelpers;
+﻿namespace ShipitSmarter.TestHelpers;
 
 /// <summary>
 /// Class that imitates a HttpClient
