@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace ShipitSmarter.TestHelpers;
+﻿namespace ShipitSmarter.TestHelpers;
 
 /// <summary>
 /// Class that takes the place of a HttpClient MessageHandler specifically for mocking Http Requests
@@ -16,7 +11,7 @@ public class TestHttpMessageHandler : HttpMessageHandler
     /// <summary>
     /// Enqueues a response for the next http call
     /// </summary>
-    /// <param name="response"></param>
+    /// <param name="response">The response that you want returned from the HttpClient</param>
     public void SetResponse(HttpResponseMessage response)
     {
         _responses.Enqueue(response);
@@ -25,12 +20,13 @@ public class TestHttpMessageHandler : HttpMessageHandler
     /// <summary>
     /// Returns the last request made via a http client
     /// </summary>
-    /// <returns>HttpRequestMessage</returns>
+    /// <returns>The last request made by the Http Client</returns>
     public HttpRequestMessage PopRequest()
     {
         return _completedRequests.Pop();
     }
 
+    /// <inheritdoc cref="HttpMessageHandler.SendAsync"/>
     protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
         CancellationToken cancellationToken)
     {

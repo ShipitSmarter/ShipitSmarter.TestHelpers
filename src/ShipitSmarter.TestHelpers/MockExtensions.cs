@@ -1,16 +1,18 @@
-﻿
-using AutoFixture;
+﻿using AutoFixture;
 using Microsoft.Extensions.Options;
 using Moq;
 
 namespace ShipitSmarter.TestHelpers;
 
+/// <summary>
+/// A static class that provides some helpful extensions and functions around the 'Moq' library
+/// </summary>
 public static class MockExtensions
 {
     /// <summary>
     /// Provides a mock of an injected IOptions as well as the actual dependant data
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Type of the IOptions dependant data</typeparam>
     /// <returns>Tuple of T and IOptionsT</returns>
     public static (T Model, IOptions<T> Options) MockOptions<T>() where T : class
     {

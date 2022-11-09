@@ -9,13 +9,21 @@
         <PackageId>ShipitSmarter.TestHelpers</PackageId>
         <Title>ShipitSmarter.TestHelpers</Title>
         <Authors>ShipitSmarter</Authors>
-        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/ShipitSmarter/ShipitSmarter.TestHelpers</PackageProjectUrl>
         <Description>A set of test helpers used when writing unit and integration tests</Description>
         <PackageTags>ShipitSmarter, TestHelpers</PackageTags>
 
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\ShipitSmarter.TestHelpers.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\ShipitSmarter.TestHelpers.xml</DocumentationFile>
     </PropertyGroup>
     
     <ItemGroup>
@@ -28,7 +36,7 @@
 
 
     <ItemGroup>
-        <None Include="Readme.md" Pack="true" PackagePath="/">
+        <None Include="../../README.md" Pack="true" PackagePath="/">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
