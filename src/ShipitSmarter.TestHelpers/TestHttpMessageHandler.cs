@@ -16,7 +16,7 @@ public class TestHttpMessageHandler : HttpMessageHandler
     /// <summary>
     /// Enqueues a response for the next http call
     /// </summary>
-    /// <param name="response"></param>
+    /// <param name="response">The response that you want returned from the HttpClient</param>
     public void SetResponse(HttpResponseMessage response)
     {
         _responses.Enqueue(response);
@@ -25,7 +25,7 @@ public class TestHttpMessageHandler : HttpMessageHandler
     /// <summary>
     /// Returns the last request made via a http client
     /// </summary>
-    /// <returns>HttpRequestMessage</returns>
+    /// <returns>The last request made by the Http Client</returns>
     public HttpRequestMessage PopRequest()
     {
         return _completedRequests.Pop();

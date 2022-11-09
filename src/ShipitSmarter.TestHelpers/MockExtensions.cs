@@ -5,6 +5,9 @@ using Moq;
 
 namespace ShipitSmarter.TestHelpers;
 
+/// <summary>
+/// A static class that provides some helpful extensions and functions around the 'Moq' library
+/// </summary>
 public static class MockExtensions
 {
     /// <summary>

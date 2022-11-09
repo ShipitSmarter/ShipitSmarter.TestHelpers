@@ -28,7 +28,7 @@
 
 
     <ItemGroup>
-        <None Include="Readme.md" Pack="true" PackagePath="/">
+        <None Include="../../Readme.md" Pack="true" PackagePath="/">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
