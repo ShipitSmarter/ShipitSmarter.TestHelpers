@@ -17,6 +17,14 @@
         <PackageTags>ShipitSmarter, TestHelpers</PackageTags>
 
     </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\ShipitSmarter.TestHelpers.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\ShipitSmarter.TestHelpers.xml</DocumentationFile>
+    </PropertyGroup>
     
     <ItemGroup>
         <PackageReference Include="AutoFixture" Version="4.17.0" />
