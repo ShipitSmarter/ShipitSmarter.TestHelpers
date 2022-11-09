@@ -9,7 +9,7 @@
         <PackageId>ShipitSmarter.TestHelpers</PackageId>
         <Title>ShipitSmarter.TestHelpers</Title>
         <Authors>ShipitSmarter</Authors>
-        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/ShipitSmarter/ShipitSmarter.TestHelpers</PackageProjectUrl>
