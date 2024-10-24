@@ -6,6 +6,7 @@
 public class TestHttpClientFactory : IHttpClientFactory
 {
     private readonly TestHttpMessageHandler _httpMessageHandler;
+    private Dictionary<string, Uri> _baseUris = [];
 
     /// <summary>
     /// Instantiates an instance of TestHttpClientFactory<see cref="TestHttpClientFactory"/>
@@ -24,6 +25,20 @@ public class TestHttpClientFactory : IHttpClientFactory
     /// <remarks>This doesn't need to be directly called. When used with the WebApplicationFactory, this will be called in the 'AddHttpClient' function in your DI class</remarks>
     public HttpClient CreateClient(string name)
     {
-        return new HttpClient(_httpMessageHandler);
+        var client = new HttpClient(_httpMessageHandler);
+        if (_baseUris.TryGetValue(name, out var uri))
+        {
+            client.BaseAddress = uri;
+        }
+
+        return client;
+    }
+
+    /// <summary>
+    /// Register a BaseURI for a specific client name.
+    /// </summary>
+    public void RegisterBaseUri(string clientName, Uri baseUri)
+    {
+        _baseUris.Add(clientName, baseUri);
     }
 }
